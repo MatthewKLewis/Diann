@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { JobService } from '../services/job.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-job',
@@ -13,8 +15,10 @@ export class AddJobComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService,
+    private router: Router,
+    private jobService: JobService,
   ) {
+    this.jobService.initializeService()
     this.newJobForm = this.formBuilder.group(
       {
         name: new FormControl('', [
@@ -34,6 +38,9 @@ export class AddJobComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.newJobForm.value)
+    this.jobService.postJob(this.newJobForm.value).subscribe((res:any)=>{
+      this.router.navigate(['profile'])
+    })
   }
 
 }

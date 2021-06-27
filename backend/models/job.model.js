@@ -7,8 +7,13 @@ const jobSchema = new Schema({
             type: String,
             required: true
         },
+        "date": {
+            type: Date,
+            required: true
+        },
         "userId": {
-            type: String
+            type: String,
+            required: true
         }
     }
 );

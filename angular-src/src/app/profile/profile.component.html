@@ -6,9 +6,14 @@
 <div>
     <p>Job Applications:</p>
     <div class="app-deck">
-        <div class="app-card">A</div>
-        <div class="app-card">B</div>
-        <div class="app-card">C</div>
-        <div class="app-card" [routerLink]="['/add-job']">Add New Job</div>
+        <div class="app-card" *ngFor="let job of jobs">
+            <p>{{job.name}}</p>
+            <p>{{job.date}}</p>
+            <p>{{job._id}}</p>
+            <button>Advance Progress</button>
+        </div>
+        <div class="app-card" [routerLink]="['/add-job']">
+            <p>+ Add New Job</p>
+        </div>
     </div>
 </div>

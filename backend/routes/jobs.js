@@ -7,22 +7,25 @@ const Job = require('../models/job.model')
 
 //CREATE
 router.post('/create', (req, res, next)=>{
-    let newMap = new Map({
+    let newJob = new Job({
         name: req.body.name,
+        date: req.body.date,
         userId: req.body.userId,
     });
-    newMap.save()
+    newJob.save().then((data)=>{
+        res.json(data);
+    })
 })
 
 //READ
-router.get('/all', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
-    Map.find().then((jobs)=>{
+router.get('/all/:userId', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
+    Job.find({userId: req.params.userId}).then((jobs)=>{
         res.json(jobs)
     })
 })
 
 router.get('/:id', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
-    Map.findById(req.params.id).then((job)=>{
+    Job.findById(req.params.id).then((job)=>{
         res.json(job)
     })
 })

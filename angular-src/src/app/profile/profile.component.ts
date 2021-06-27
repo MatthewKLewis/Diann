@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JobService } from '../services/job.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -10,15 +11,19 @@ import { UserService } from '../services/user.service';
 export class ProfileComponent implements OnInit {
 
   user: any
-  jobs!: Array<any>
+  jobs: any
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private jobService: JobService, private router: Router) { }
 
   ngOnInit(): void {
+    this.jobService.initializeService();
+
     this.userService.getProfile().subscribe((res:any)=>{
       this.user = res.user
       this.jobs = res.user.jobs
-      console.log(this.user)
+      this.jobService.getJobsByUser(1).subscribe((res)=>{
+        this.jobs = res
+      })
     }, (err)=>{
       console.log('ERROR!')
       console.log(err)
