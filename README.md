@@ -1,1 +1,1 @@
-Front and Back end for Authentication
+Diann is a Job application tracking manager designed to remind the user of the shame and indignity of the job search.
