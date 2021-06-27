@@ -34,6 +34,10 @@ router.get('/:id', passport.authenticate('jwt', {session:false}), (req, res, nex
 
 
 //DESTROY
-
+router.delete('/delete/:id', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
+    Job.findByIdAndDelete(req.params.id).then((job)=>{
+        res.json(job)
+    })
+})
 
 module.exports = router;

@@ -17,7 +17,15 @@ export class JobService {
     this.authToken = localStorage.getItem('id_token')
   }
 
-  getJobsByUser(userId: number) {
+  deleteJob(id:number) {
+    let headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authToken}`,
+      'Content-Type': 'application/json'
+    });
+    return this.http.delete(`http://localhost:4100/jobs/delete/${id}`, { headers: headers })
+  }
+
+  getJobsByUser(userId:number) {
     let headers = new HttpHeaders({
       'Authorization': `Bearer ${this.authToken}`,
       'Content-Type': 'application/json'
@@ -25,7 +33,7 @@ export class JobService {
     return this.http.get(`http://localhost:4100/jobs/all/${this.userId}`, { headers: headers })
   }
 
-  postJob(job: any) {
+  postJob(job:any) {
     let headers = new HttpHeaders({
       'Authorization': `Bearer ${this.authToken}`,
       'Content-Type': 'application/json'
