@@ -2,3 +2,13 @@
     <p>{{user.username}}</p>
     <p>{{user.email}}</p>
 </div>
+<hr />
+<div>
+    <p>Job Applications:</p>
+    <div class="app-deck">
+        <div class="app-card">A</div>
+        <div class="app-card">B</div>
+        <div class="app-card">C</div>
+        <div class="app-card" [routerLink]="['/add-job']">Add New Job</div>
+    </div>
+</div>

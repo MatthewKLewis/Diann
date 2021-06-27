@@ -1,0 +1,16 @@
+hr {
+  border: none;
+  background-color: green;
+  height: 1px;
+}
+
+.app-deck {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.app-card {
+  min-height: 200px;
+  border: 1px solid green;
+  margin: 10px;
+}

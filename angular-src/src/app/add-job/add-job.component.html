@@ -1,0 +1,26 @@
+<form [formGroup]="newJobForm" (ngSubmit)="onSubmit()">
+  <p>
+    <label for="name">name </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      formControlName="name"
+    />
+  </p>
+  <p>
+    <label for="username">application date </label>
+    <input
+      type="date"
+      id="date"
+      name="date"
+      formControlName="date"
+    />
+  </p>
+  <input
+    type="submit"
+    class="btn"
+    [disabled]="newJobForm.invalid"
+    value="Submit"
+  />
+</form>

@@ -11,7 +11,7 @@ const User = require("./models/user.model")
 
 //Routes
 const userRoutes = require('./routes/users')
-const mapRoutes = require('./routes/maps')
+const jobRoutes = require('./routes/jobs')
 
 
 //Configuring...
@@ -25,7 +25,7 @@ require('./passport')(passport)
 
 //Route Registration
 app.use('/users', userRoutes)
-app.use('/maps', mapRoutes)
+app.use('/jobs', jobRoutes)
 
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')))

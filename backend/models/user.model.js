@@ -16,8 +16,8 @@ const userSchema = new Schema({
             type: String,
             required: true
         },
-        "maps": [
-            {type: Schema.Types.ObjectId, ref: 'Map'}
+        "jobs": [
+            {type: Schema.Types.ObjectId, ref: 'Job'}
           ]
     }
 );
