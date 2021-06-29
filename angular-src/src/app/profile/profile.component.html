@@ -1,29 +1,31 @@
 <!-- USER INFO -->
 <div *ngIf="user">
-    <p>{{user.username}} - {{user.email}}</p>
+  <p>{{ user.username }} - {{ user.email }}</p>
 </div>
 <!-- Random Tip -->
 <div>
-    <p>Job Applications:</p>
-    <div class="app-deck">
-        <div *ngFor="let job of jobs" class="app-card">
-            <div class="app-info">
-                <div class="job-data">
-                    <p>{{job.name}}</p>
-                    <p>{{job.date.split('T')[0]}}</p>
-                    <p style="color: gray; font-size: 10px;">{{job._id}}</p>
-                </div>
-                <div class="job-graphics">
-                    <p>Progress: {{job.progress}}% </p>
-                    <progress [value]="job.progress" [max]="100"></progress>
-                    <p>Next Step: Call and harass an HR manager</p>
-                </div>
-            </div>
-            <button class="card-button">advance progress</button>
-            <button class="delete-button" (click)="deleteJob(job._id)">delete application</button>
+  <p>Job Applications:</p>
+  <div class="app-deck">
+    <div *ngFor="let job of jobs" class="app-card">
+      <div class="app-info">
+        <div class="job-data">
+          <p>{{ job.name }}</p>
+          <p>{{ job.date.split("T")[0] }}</p>
+          <p style="color: gray; font-size: 10px">{{ job._id }}</p>
         </div>
-        <div class="app-card" [routerLink]="['/add-job']">
-            <p>+ add new application</p>
+        <div class="job-graphics">
+          <p>Progress: {{ job.progress }}%</p>
+          <progress [value]="job.progress" [max]="100"></progress>
+          <p>Next Step: Call and harass an HR manager</p>
         </div>
+      </div>
+      <button class="card-button">advance progress</button>
+      <button class="delete-button" (click)="deleteJob(job._id)">
+        delete application
+      </button>
     </div>
+    <div class="app-card" [routerLink]="['/add-job']">
+      <p>+ add new application</p>
+    </div>
+  </div>
 </div>
