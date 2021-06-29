@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard';
 import { AddJobComponent } from './add-job/add-job.component';
+import { FirstTimeComponent } from './first-time/first-time.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AddJobComponent } from './add-job/add-job.component';
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
-    AddJobComponent
+    AddJobComponent,
+    FirstTimeComponent
   ],
   imports: [
     BrowserModule,

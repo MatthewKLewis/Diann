@@ -37,7 +37,6 @@ export class AddJobComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.newJobForm.value)
     this.jobService.postJob(this.newJobForm.value).subscribe((res:any)=>{
       this.router.navigate(['profile'])
     })

@@ -49,7 +49,11 @@ export class LoginComponent implements OnInit {
     this.userService.logInUser(this.loginForm.value).subscribe((res:any)=>{
       if (res.success) {
         this.userService.storeUserData(res.token, res.user)
-        this.router.navigate(['profile'])
+        if (res.user.firstTime) {
+          this.router.navigate(['first-time'])
+        } else {
+          this.router.navigate(['profile'])
+        }
       } else {
         this.flashMessage(res.msg)
       }

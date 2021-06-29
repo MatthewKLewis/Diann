@@ -12,7 +12,6 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   storeUserData(token:any, user:any) {
-    console.log('saving to local storage...')
     localStorage.setItem('id_token', token)
     localStorage.setItem('user', JSON.stringify(user))
     this.authToken = token;

@@ -1,0 +1,23 @@
+<div *ngIf="step == 1">
+  <h2>Step One: Tell us your job skills.</h2>
+  <p>Paragraph</p>
+  <button (click)="incrementStep()">Next</button>
+</div>
+
+<div *ngIf="step == 2">
+  <h2>Step Two: Tell us what kind of job you're looking for.</h2>
+  <p>Paragraph</p>
+  <button (click)="incrementStep()">Next</button>
+</div>
+
+<div *ngIf="step == 3">
+  <h2>Step Three: Tell us what you liked about your last employment.</h2>
+  <p>Paragraph</p>
+  <button (click)="incrementStep()">Next</button>
+</div>
+
+<div *ngIf="step == 4">
+  <h2>Step Four: Finalizing.</h2>
+  <p>Paragraph</p>
+  <button (click)="finalize()">Done</button>
+</div>

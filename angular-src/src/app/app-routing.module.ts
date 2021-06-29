@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AddJobComponent } from './add-job/add-job.component';
+import { FirstTimeComponent } from './first-time/first-time.component'
 import { AuthGuard } from './guards/auth.guard'
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'add-job', component: AddJobComponent, canActivate: [AuthGuard]},
+  {path: 'first-time', component: FirstTimeComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

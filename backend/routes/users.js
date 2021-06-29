@@ -11,7 +11,8 @@ router.post('/register', (req, res, next)=>{
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        maps: []
+        jobs: [],
+        firstTime: true
     });
     User.addUser(newUser, (err, user)=>{
         if (err){
@@ -37,7 +38,8 @@ router.post('/authenticate', (req, res, next)=>{
                     user: {
                         id: user._id,
                         username: user.username,
-                        email: user.email
+                        email: user.email,
+                        firstTime: user.firstTime
                     }
                 })
             } else {

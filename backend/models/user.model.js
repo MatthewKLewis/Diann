@@ -16,6 +16,10 @@ const userSchema = new Schema({
             type: String,
             required: true
         },
+        "firstTime": {
+            type: Boolean,
+            required: true,
+        },
         "jobs": [
             {type: Schema.Types.ObjectId, ref: 'Job'}
           ]
