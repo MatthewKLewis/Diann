@@ -1,8 +1,12 @@
-<!-- USER INFO -->
 <div *ngIf="user">
   <p>{{ user.username }} - {{ user.email }}</p>
 </div>
-<!-- Random Tip -->
+<hr />
+<div>
+  <p>Goals:</p>
+  <p>You have applied to {{jobs?.length}} jobs in the past week. Your goal is 10 applications.</p>
+</div>
+<hr />
 <div>
   <p>Job Applications:</p>
   <div class="app-deck">
@@ -12,7 +16,7 @@
           <p>{{ job.name }}</p>
           <p>{{ job.date.split("T")[0] }}</p>
           <p style="color: gray; font-size: 10px">{{ job._id }}</p>
-        </div>
+        </div> 
         <div class="job-graphics">
           <p>Progress: {{ job.progress }}%</p>
           <progress [value]="job.progress" [max]="100"></progress>
