@@ -1,26 +1,27 @@
-<form [formGroup]="newJobForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="newImageForm" (ngSubmit)="onSubmit()">
   <p>
     <label for="name">name </label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      formControlName="name"
-    />
+    <input type="text" id="name" name="name" formControlName="name" />
   </p>
   <p>
+    <label for="desc">description </label>
+    <input type="text" id="desc" name="desc" formControlName="desc" />
+  </p>
+  <input
+    (change)="onChange($event)"
+    id="upload-btn"
+    type="file"
+    accept="image/png, image/jpeg"
+  />
+  <p *ngIf="errorMessage">{{errorMessage}}</p>
+  <p>
     <label for="username">application date </label>
-    <input
-      type="date"
-      id="date"
-      name="date"
-      formControlName="date"
-    />
+    <input type="date" id="date" name="date" formControlName="date" />
   </p>
   <input
     type="submit"
     class="btn"
-    [disabled]="newJobForm.invalid"
+    [disabled]="newImageForm.invalid"
     value="Submit"
   />
 </form>

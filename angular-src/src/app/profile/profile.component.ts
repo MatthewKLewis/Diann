@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JobService } from '../services/job.service';
+import { ImageService } from '../services/image.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -14,17 +14,17 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private jobService: JobService,
+    private imageService: ImageService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.jobService.initializeService();
+    this.imageService.initializeService();
     this.userService.getProfile().subscribe(
       (res: any) => {
         this.user = res.user;
         this.jobs = res.user.jobs;
-        this.jobService.getJobsByUser(1).subscribe((res) => {
+        this.imageService.getImagesByUser(1).subscribe((res) => {
           this.jobs = res;
           this.jobs.forEach((job:any) => {
             job.progress = 40
@@ -40,11 +40,11 @@ export class ProfileComponent implements OnInit {
 
   deleteJob(id: number) {
     if (confirm('Are you sure you want to delete this Job?')) {
-      this.jobService.deleteJob(id).subscribe(
+      this.imageService.deleteImage(id).subscribe(
         (res) => {
           window.location.reload();
         },
-        (err) => {}
+        (err:any) => {}
       );
     } else {
     }

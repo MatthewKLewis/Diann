@@ -3,12 +3,7 @@
 </div>
 <hr />
 <div>
-  <p>Goals:</p>
-  <p>You have applied to {{jobs?.length}} jobs in the past week. Your goal is 10 applications.</p>
-</div>
-<hr />
-<div>
-  <p>Job Applications:</p>
+  <p>Images:</p>
   <div class="app-deck">
     <div *ngFor="let job of jobs" class="app-card">
       <div class="app-info">
@@ -18,18 +13,16 @@
           <p style="color: gray; font-size: 10px">{{ job._id }}</p>
         </div> 
         <div class="job-graphics">
-          <p>Progress: {{ job.progress }}%</p>
-          <progress [value]="job.progress" [max]="100"></progress>
-          <p>Next Step: Call and harass an HR manager</p>
+          <p>Row 2</p>
         </div>
       </div>
       <button class="card-button">advance progress</button>
       <button class="delete-button" (click)="deleteJob(job._id)">
-        delete application
+        delete image
       </button>
     </div>
     <div class="app-card" [routerLink]="['/add-job']">
-      <p>+ add new application</p>
+      <p>+ add new image</p>
     </div>
   </div>
 </div>

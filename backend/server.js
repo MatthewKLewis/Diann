@@ -11,21 +11,21 @@ const User = require("./models/user.model")
 
 //Routes
 const userRoutes = require('./routes/users')
-const jobRoutes = require('./routes/jobs')
+const imageRoutes = require('./routes/images')
 
 
 //Configuring...
 const port = process.env.PORT || 4000
 const app = express();
 app.use(cors())
-app.use(bodyParser.json())
+//app.use(bodyParser.json())
 app.use(passport.initialize())
 app.use(passport.session())
 require('./passport')(passport)
 
 //Route Registration
 app.use('/users', userRoutes)
-app.use('/jobs', jobRoutes)
+app.use('/images', imageRoutes)
 
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')))
